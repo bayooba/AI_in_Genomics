@@ -1,0 +1,52 @@
+---
+title: 'From Sequence to Insight: How AI Turns Raw DNA into Biological Knowledge'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## From Sequence to Insight: How AI Turns Raw DNA into Biological Knowledge
+
+### Introduction
+
+For decades, understanding DNA meant using "sequence alignment" – comparing new DNA to a known reference, much like spotting a familiar word in a foreign sentence. This approach works reasonably well for the 2% of our genome that codes for proteins but fails almost entirely for the remaining 98%, often called the "***dark matter***" of the genome (Dalla-Torre ***et al***., 2023). Today, a fundamental revolution is underway. Researchers now use Genome Language Models (GLMs) – the same type of artificial intelligence that powers chatbots like ChatGPT – to read DNA as if it were a biological language. These models learn the hidden grammar of life on their own, without explicit human instruction, and turn raw genetic sequences into powerful biological insights (Nguyen ***et al***., 2024).
+
+## Main Body
+
+#### Step 1: Tokenization. 
+
+Before the AI can read DNA, it must convert the endless string of letters (A, T, G, C) into smaller, digestible pieces called tokens. There are several ways to do this: using single letters for highest resolution, grouping letters into fixed-length chunks called ***k-mers*** for efficiency, or using Byte-Pair Encoding (BPE) to let the AI discover its own meaningful "words" based on how often patterns appear (Dalla-Torre ***et al***., 2023).
+
+#### Step 2: Self-supervised learning. 
+
+After tokenization, the AI learns by playing a sophisticated guessing game across billions of DNA letters. One method, called masked token prediction (inspired by Google's BERT model), shows the AI a sequence with missing sections and asks it to fill in the blanks (Devlin ***et al***., 2019). Another method, next-token prediction, trains the AI to act like a biological autocomplete system. Astonishingly, through these simple games, the AI spontaneously rediscovers fundamental biology–the three-letter rhythm of codons, the signals that start and stop genes, and the difference between coding exons and non-coding introns – ***all without a single biology lesson (Nguyen ***et al***., 2024).
+
+#### Step 3: Handling DNA's unique complexity. 
+
+DNA is far more complex than human language. A single regulatory switch that controls a gene can be located more than one million letters away from that gene. To handle these long-range connections, advanced models like Evo2 use enormous "context windows" that can read up to one million letters at once (Dalla-Torre ***et al***., 2023). Additionally, DNA has two strands that are mirror images of each other, a property called reverse complement symmetry. The Caduceus model was specifically designed to build this mirror symmetry directly into its architecture, which makes learning much more efficient and prevents the model from having to relearn the same patterns twice (Schiff ***et al***., 2024).
+
+#### Step 4: Generating biological insight. 
+
+Once trained, these models become powerful inference engines. They can predict whether a single-letter genetic mutation is harmless or likely to cause disease – a task particularly valuable for "Variants of Uncertain Significance" (VUS) found in cancer patients (Dalla-Torre ***et al***., 2023). They can forecast how much protein a gene will produce based solely on the regulatory DNA surrounding it. Most impressively, researchers have used these models to design entirely new biological systems that do not exist in nature, including functional CRISPR-Cas complexes (Nguyen ***et al***., 2024).
+
+#### Step 5: Opening the black box. 
+
+A major concern is that these AIs are often "***black boxes***" – we can see their answers but not how they arrived at them. To address this, scientists use tools like DeepLIFT, which highlight exactly which DNA letters most influenced the AI's prediction (Shrikumar ***et al***., 2017). An even more transparent approach builds Biologically Annotated Neural Networks (BANNs), where every component of the model corresponds to a real biological structure, making the AI's reasoning inherently understandable.
+
+### Conclusion
+
+The shift from simple sequence alignment to deep language models represents a fundamental transformation in how we study life's code. We no longer need a perfect reference genome to understand a new mutation – the AI has learned the grammatical rules that make a sequence work or break. This breakthrough is already accelerating drug discovery, improving genetic diagnosis for patients with mysterious diseases, and helping us understand the previously invisible "dark matter" of our genome (Dalla-Torre ***et al***., 2023). By mastering DNA's hidden rules, we are moving from merely reading the book of life to actively writing it–from passive observers of evolution to active engineers of life itself.
+
+### References
+
+Dalla-Torre, H., Gonzalez, L., Mendoza-Revilla, J., et al. (2023). The Nucleotide Transformer: Building and evaluating robust foundation models for human genomics. *bioRxiv*. https://doi.org/10.1101/2023.01.11.523679
+
+Devlin, J., Chang, M. W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding. *Proceedings of NAACL-HLT*, 4171–4186.
+
+Nguyen, E., Poli, M., Durrant, M. G., et al. (2024). Sequence modeling and design from molecular to genome scale with Evo. *Science*, 386(6723), eado9336.
+
+Schiff, Y., Kao, C. H., Gokaslan, A., et al. (2024). Caduceus: Bi-directional equivariant long-range DNA sequence modeling. *Proceedings of ICML*.
+
+Shrikumar, A., Greenside, P., & Kundaje, A. (2017). Learning important features through propagating activation differences. *Proceedings of ICML*, 70, 3145–3153.
